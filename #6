@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+    std::string word, wordCopy = "";
+    std::cin >> word;
+    for (int i = 0; i < word.length(); i++)
+    {
+        wordCopy = wordCopy + word[i];
+    };
+    std::cout << wordCopy;
+}
