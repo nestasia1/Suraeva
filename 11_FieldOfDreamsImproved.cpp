@@ -1,3 +1,5 @@
+//поле чудес с улучшениями: проверяется, была ли введена буква ранее, можно пробовать угадаь слово полностью
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -7,12 +9,12 @@ using namespace std;
 
 int main()
 {
-    char word[100], wordSecret[10];                   //два масива, первый для оригинала слова,второй для его шифра
-    bool help1 = false, help2 = false; //две переменные для контроля не расшифровали ли слово и угадали ли букву
+    char word[100], wordSecret[10];               
+    bool help1 = false, help2 = false;
     cout << "Enter word: ";
     cin >> word;
     
-    for (int i = 0; i < strlen(word); i++) //заполняем массив тем же количеством "-", что и количество букв в первом 
+    for (int i = 0; i < strlen(word); i++) 
         wordSecret[i] = '-';
     char letter[100], letter1[100];
     int j = 0;
@@ -22,8 +24,8 @@ int main()
 
     if (strlen(letter) != 1)
     {
-        for (int i = 0; i < strlen(letter); i++)     //проверяем, не угадали ли еще слово
-        {                                   //Слово считаем угаданым если в массиве не осталось "-"
+        for (int i = 0; i < strlen(letter); i++)    
+        {                                   
             if (letter[i] != word[i])
             {
                 cout << "Fail\n";
@@ -37,19 +39,19 @@ int main()
     letter1[j] = letter[0];
     j++;
 
-    for (int i = 0; i < strlen(word); i++)     //проверяем есть ли заданая буква в слове
+    for (int i = 0; i < strlen(word); i++)    
         if (word[i] == letter[0])
         {
-            wordSecret[i] = letter[0];                           //ели да, то в шифрованом массиве заменяем "-" на букву
-            help2 = true;                        //заносим в переменную информацию о том, что мы угадали букву
+            wordSecret[i] = letter[0];                        
+            help2 = true;                       
         }
 
-    if (help2 == false)  //сообщаем о том, что такой буквы нет (если её нет)
+    if (help2 == false)  
     {
         cout << "There is not this letter\n";
     }
 
-    if (help2 == true)                       //если угадали букву, выводим слово
+    if (help2 == true)                      
     {
         for (int i = 0; i < strlen(word); i++)
         {
@@ -58,8 +60,8 @@ int main()
         cout << "\n";
     }
 
-    for (int i = 0; i < strlen(word); i++)     //проверяем, не угадали ли еще слово
-    {                                   //Слово считаем угаданым если в массиве не осталось "-"
+    for (int i = 0; i < strlen(word); i++)    
+    {                                   
         if (wordSecret[i] == '-')
         {
             help1 = false;
@@ -76,7 +78,7 @@ int main()
     }
 
 
-    while (help1 == false)                  //пока слово не разгадали
+    while (help1 == false)                 
     {
         help2 = false;
         cout << "Enter letter: ";
@@ -84,8 +86,8 @@ int main()
 
         if (strlen(letter) != 1)
         {
-            for (int i = 0; i < strlen(letter); i++)     //проверяем, не угадали ли еще слово
-            {                                   //Слово считаем угаданым если в массиве не осталось "-"
+            for (int i = 0; i < strlen(letter); i++)  
+            {                                  
                 if (letter[i] != word[i])
                 {
                     cout << "Fail\n";
@@ -108,11 +110,11 @@ int main()
         letter1[j] = letter[0];
         j++;
 
-        for (int i = 0; i < strlen(word); i++)     //проверяем есть ли заданая буква в слове
+        for (int i = 0; i < strlen(word); i++)     
             if (word[i] == letter[0])
             {
-                wordSecret[i] = letter[0];                           //ели да, то в шифрованом массиве заменяем "-" на букву
-                help2 = true;                        //заносим в переменную информацию о том, что мы угадали букву
+                wordSecret[i] = letter[0];                         
+                help2 = true;                       
             }
         
         if (help2 == false)  //сообщаем о том, что такой буквы нет (если её нет)
@@ -121,7 +123,7 @@ int main()
         }
                 
 
-        if (help2 == true)                       //если угадали букву, выводим слово
+        if (help2 == true)                   
         {
             for (int i = 0; i < strlen(word); i++)
             {
@@ -131,8 +133,8 @@ int main()
         }
 
 
-        for (int i = 0; i < strlen(word); i++)     //проверяем, не угадали ли еще слово
-        {                                   //Слово считаем угаданым если в массиве не осталось "-"
+        for (int i = 0; i < strlen(word); i++)    
+        {                               
             if (wordSecret[i] == '-')
             {
                 help1 = false;
