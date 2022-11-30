@@ -23,12 +23,9 @@ int main()
 	}
 	Rectangle r2(b[0], b[1], b[2], b[3]);
 
-
 	//cout << Rectangle::isIntersected(r1, r2);
 	cout << r1.isIntersected(r2);
 
-
 	data.close();
 	return 0;
-
 }
