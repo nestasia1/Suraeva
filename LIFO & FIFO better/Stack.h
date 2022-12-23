@@ -7,7 +7,7 @@
 using namespace std;
 
 template<class T>
-class Stack : public CStructure
+class Stack : public CStructure<T>
 {
 	public:
 		void push(T n) override
