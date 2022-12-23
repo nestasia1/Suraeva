@@ -10,6 +10,16 @@ template<class T>
 class Queue: public CStructure<T>
 {
 	public:
-		void push(T n) override;
-		T pop() override;
+		void push(T n) override
+		{
+			this->arr.push_back(n);
+		}
+		
+		T pop() override
+		{
+			T res = this->arr.front();
+			this->arr.erase(arr.begin());
+
+			return res;
+		}
 };
